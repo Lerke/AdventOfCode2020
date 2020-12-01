@@ -6,18 +6,16 @@ let readNumbers (path: string): int list =
 
 let readInput (numbers: int list): int =
     List.allPairs numbers numbers
-    |> List.filter (fun (x,y) -> x <> y) // Exclude doubles
+    |> List.distinctBy (fun (x,y) -> x + y) // Select distinct usms
     |> List.filter (fun (x,y) -> x + y = 2020) // Find where sums is 2020
-    |> Seq.map (fun (x,y) -> x * y)
-    |> Seq.distinct |> Seq.head
+    |> Seq.map (fun (x,y) -> x * y) |> Seq.head // Multiply, take (hopefully) first and only
 
 let readInputThreePairs (numbers: int list): int =
-    List.allPairs (List.allPairs numbers numbers) numbers
-    |> List.map (fun ((x,y), z) -> (x,y,z))
-    |> List.filter (fun (x,y,z) -> x <> y && x <> z && y <> z)
-    |> List.filter (fun (x,y,z) -> x + y + z = 2020)
-    |> Seq.map (fun (x,y,z) -> x * y * z)
-    |> Seq.distinct |> Seq.head
+    List.allPairs (List.allPairs numbers numbers) numbers // Zip it twice
+    |> List.map (fun ((x,y), z) -> (x,y,z)) // Create three-tuple
+    |> List.distinctBy (fun (x,y,z) -> x + y + z) // Get unique sums
+    |> List.filter (fun (x,y,z) -> x + y + z = 2020) // Check where sums are 2020
+    |> Seq.map (fun (x,y,z) -> x * y * z) |> Seq.head // Multiply, take (hopefully) first and only
 
 [<EntryPoint>]
 let main argv =
