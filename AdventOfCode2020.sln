@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day1.ReportRepair", "Day1.ReportRepair\Day1.ReportRepair.fsproj", "{5DC92F83-3F9E-4916-8672-60D5F058A601}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day2.PasswordPhilosophy", "Day2.PasswordPhilosophy\Day2.PasswordPhilosophy.fsproj", "{D0726524-9434-4FC7-911B-97DEE924C277}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{5DC92F83-3F9E-4916-8672-60D5F058A601}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DC92F83-3F9E-4916-8672-60D5F058A601}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DC92F83-3F9E-4916-8672-60D5F058A601}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0726524-9434-4FC7-911B-97DEE924C277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0726524-9434-4FC7-911B-97DEE924C277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0726524-9434-4FC7-911B-97DEE924C277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0726524-9434-4FC7-911B-97DEE924C277}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
