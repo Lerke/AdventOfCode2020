@@ -7,4 +7,4 @@ With the goal of experimenting a bit with new languages and tools!
 | --- | -------- | --------        | -------- |
 |  1  | F#       | :star2: :star2: | [Day1.ReportRepair](https://github.com/Lerke/AdventOfCode2020/tree/master/Day1.ReportRepair)
 |  2  | F#       | :star2: :star2: | [Day2.PasswordPhilosophy](https://github.com/Lerke/AdventOfCode2020/tree/master/Day2.PasswordPhilosophy)
-|  3  | F#       | :star2: | [Day3.TobogganTrajectory](https://github.com/Lerke/AdventOfCode2020/tree/master/Day2.TobogganTrajectory)
+|  3  | F#       | :star2: | [Day3.TobogganTrajectory](https://github.com/Lerke/AdventOfCode2020/tree/master/Day3.TobogganTrajectory)
