@@ -107,24 +107,25 @@ let main argv =
             inputDirections // for each position we'll create an initial simulation
             |> List.map (fun direction ->
                 { position = { x = 0; y = 0 }
-                  direction = { x = (direction.x |> int); y = (direction.y |> int) }
+                  direction =
+                      { x = (direction.x |> int)
+                        y = (direction.y |> int) }
                   treesHit = 0
                   world = world })
 
         // Calculate the final state by running initial state to its conclusion
         let finalStates =
-            initialSimulationStates
-            |> List.map RunSimulation
-            
+            initialSimulationStates |> List.map RunSimulation
+
         // Do some pretty output printing
         finalStates
         |> List.iteri (fun i world -> printfn "Run %d (%d, %d) - Trees hit: %d" i world.direction.x world.direction.y world.treesHit)
-        
+
         // Finally just multiply all trees encountered on each slope
         let finalResult =
             finalStates
             |> List.fold (fun c x -> (c |> int64) * (x.treesHit |> int64)) (1 |> int64) // Do some int64 casting to prevent overflowing
-        
+
         printfn "Multiplied together, that's %d trees! (Two star output)" finalResult
         0 // return an integer exit code
     | _ ->
