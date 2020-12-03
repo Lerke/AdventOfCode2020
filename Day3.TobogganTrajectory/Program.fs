@@ -1,5 +1,6 @@
 ﻿open System
 open System.IO
+open System.Text.RegularExpressions
 
 // The world exists of only two objects
 type WorldObject =
@@ -23,11 +24,14 @@ type Simulation =
       treesHit: int
       world: World }
 
+// Check if the current position is a tree
 let SimulationOnTree simulation =
     simulation.world.objects.[(simulation.position.y * simulation.world.width)
                               + simulation.position.x] = Tree
 
-// Run simulation until its conclusion
+// Run simulation until its conclusion. Essentially, every step take the current world
+// check if we can move, check if we're on a tree, actually move. recursively solve until
+// we run out of vertical world.
 let rec RunSimulation simulation =
     match simulation with
     // When the next step won't result in us falling off the end of the slope, return a new world state
@@ -67,29 +71,62 @@ let ParseInput lines =
           |> List.map (fun x -> ParseInputLine x) // Parse every line for a list of lists of world objects
           |> List.collect (fun x -> x) } // Flatten this list list to a single list.
 
+// Program input supports pairs of input directions,
+// e.g. 3 1 2 4 -> (3,1) and (2,4)
+//      1 2     -> (1,2) only
+let ParseInputDirections arg =
+    Regex.Matches(arg, "(?:(\d+) (\d+))+")
+    |> Seq.toList
+    |> List.map (fun x ->
+        match x.Groups with
+        | g when g.Count = 3 ->
+            { x = g.[1].Value |> int
+              y = g.[2].Value |> int }
+        | _ -> failwith (sprintf "Invalid input group. Expected \"x y\" list, got: %s" arg))
+
 [<EntryPoint>]
 let main argv =
-    match argv with
-    | [| path; initialX; initialY |] ->
+    match Array.length argv with
+    | x when x >= 3 ->
+        // First argument is path to input file
+        let path = Array.head argv
+
+        // Read our input directions. Each pair will get its own
+        // simulation
+        let inputDirections =
+            (Array.skip 1 argv)
+            |> String.concat " "
+            |> ParseInputDirections
+
         printfn "Advent of Code 2020 - Day 3 - Toboggan Trajectory"
-        printfn "Using path: %s\nDirection: (%d, %d)" path (initialX |> int) (initialY |> int)
         let lines = File.ReadAllLines path |> Array.toList
         let world = ParseInput lines
 
         // Create an initial simulation with the world we just made
-        let initialSimulationState =
-            { position = { x = 0; y = 0 }
-              direction =
-                  { x = (initialX |> int)
-                    y = (initialY |> int) }
-              treesHit = 0
-              world = world }
+        let initialSimulationStates =
+            inputDirections // for each position we'll create an initial simulation
+            |> List.map (fun direction ->
+                { position = { x = 0; y = 0 }
+                  direction = { x = (direction.x |> int); y = (direction.y |> int) }
+                  treesHit = 0
+                  world = world })
 
         // Calculate the final state by running initial state to its conclusion
-        let finalState = RunSimulation initialSimulationState
-
-        printfn "Okay, done sledding.\nTrees hit: %d" finalState.treesHit
+        let finalStates =
+            initialSimulationStates
+            |> List.map RunSimulation
+            
+        // Do some pretty output printing
+        finalStates
+        |> List.iteri (fun i world -> printfn "Run %d (%d, %d) - Trees hit: %d" i world.direction.x world.direction.y world.treesHit)
+        
+        // Finally just multiply all trees encountered on each slope
+        let finalResult =
+            finalStates
+            |> List.fold (fun c x -> (c |> int64) * (x.treesHit |> int64)) (1 |> int64) // Do some int64 casting to prevent overflowing
+        
+        printfn "Multiplied together, that's %d trees! (Two star output)" finalResult
         0 // return an integer exit code
     | _ ->
-        printfn "Usage: ./TobogganTrajectory.dll path/to/input.txt initialX initialY"
+        printfn "Usage: ./TobogganTrajectory.dll path/to/input.txt initialX initialY [secondInitialX secondInitialY]*"
         1
