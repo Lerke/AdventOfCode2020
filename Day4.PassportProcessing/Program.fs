@@ -1,13 +1,15 @@
 ﻿open System
-open System.Diagnostics
 open System.IO
 open System.Text.RegularExpressions
 
+type Height = { unit: string; height: int }
+let inline (>=<) a (b, c) = a >= b && a <= c
+
 type Passport =
-    { birthYear: string option
-      issueYear: string option
-      expirationYear: string option
-      height: string option
+    { birthYear: int option
+      issueYear: int option
+      expirationYear: int option
+      height: Height option
       hairColour: string option
       eyeColour: string option
       passportId: string option
@@ -32,17 +34,34 @@ let ParsePassportText (text: String) =
     let matches =
         Regex.Matches
             (text,
-             @"(?:ecl:(?<ecl>#?\w+))|(?:pid:(?<pid>[^\s]+))|(?:eyr:(?<eyr>\d+))|(?:hcl:(?<hcl>#?\w+))|(?:byr:(?<byr>\d+))|(?:iyr:(?<iyr>\d+))|(?:cid:(?<cid>\d+))|(?:hgt:(?<hgt>\d+\w+))")
+             @"(?:ecl:(?<ecl>(?:amb|blu|brn|gry|grn|hzl|oth)))|(?:pid:(?<pid>\d+))|(?:eyr:(?<eyr>\d{4}))|(?:hcl:(?<hcl>#[a-f0-9]{6}))|(?:byr:(?<byr>\d{4}))|(?:iyr:(?<iyr>\d{4}))|(?:cid:(?<cid>\d+))|(?:hgt:(?<hgt>\d+)(?<hgtUnit>cm|in))")
         |> Seq.toList
         |> List.filter (fun g -> g.Success)
 
-    { birthYear = ExtractFromPassport matches "byr"
-      issueYear = ExtractFromPassport matches "iyr"
-      expirationYear = ExtractFromPassport matches "eyr"
-      height = ExtractFromPassport matches "hgt"
-      hairColour = ExtractFromPassport matches "hcl"
-      eyeColour = ExtractFromPassport matches "ecl"
-      passportId = ExtractFromPassport matches "pid"
+    // Return resulting password, apply validation from two star challenge
+    { birthYear =
+          (match ExtractFromPassport matches "byr" with
+           | Some x when (x |> int) >=< (1920, 2002) -> Some(x |> int)
+           | _ -> None)
+      issueYear =
+          (match ExtractFromPassport matches "iyr" with
+           | Some x when (x |> int) >=< (2010, 2020) -> Some(x |> int)
+           | _ -> None)
+      expirationYear =
+          (match ExtractFromPassport matches "eyr" with
+           | Some x when (x |> int) >=< (2020, 2030) -> Some(x |> int)
+           | _ -> None)
+      height =
+          (match (ExtractFromPassport matches "hgt", ExtractFromPassport matches "hgtUnit") with
+           | (Some h, Some u) when (u = "cm" && ((h |> int) >=< (150, 193))) -> Some { unit = u; height = h |> int }
+           | (Some h, Some u) when (u = "in" && ((h |> int) >=< (59, 76))) -> Some { unit = u; height = h |> int }
+           | _ -> None)
+      hairColour = ExtractFromPassport matches "hcl" // validated by regex
+      eyeColour = ExtractFromPassport matches "ecl" // validated by regex
+      passportId =
+          (match ExtractFromPassport matches "pid" with
+           | Some x when x.Length = 9 -> Some x
+           | _ -> None)
       countryId = ExtractFromPassport matches "cid" }
 
 // Check if a passport is valid. A passport is valid
@@ -50,8 +69,8 @@ let ParsePassportText (text: String) =
 // field may be ignored when missing.
 let (|ValidPassport|InvalidPassport|) passport =
     match passport with
-    | { birthYear = Some _; issueYear = Some _; expirationYear = Some _; height = Some _; hairColour = Some _; eyeColour = Some _; passportId = Some _; countryId = _ } ->  // ignore CountryId for now (Part 1)
-        ValidPassport passport
+    | { birthYear = Some _; issueYear = Some _; expirationYear = Some _; height = Some _; hairColour = Some _; eyeColour = Some _; passportId = Some _;
+        countryId = _ } -> ValidPassport passport
     | _ -> InvalidPassport passport
 
 let IsValidPassport passport =
@@ -69,17 +88,21 @@ let main argv =
     match argv.Length with
     | 1 ->
         let path = Array.head argv
-        printfn "Day 4 - Passport Processing (*)"
+        printfn "Day 4 - Passport Processing (**)"
         printfn "Using path: %s" path
-            
+
         let passports =
             File.ReadAllText(path)
             |> ParseInput
             |> Array.toList
             |> List.map (fun x -> ParsePassportText x)
             |> List.map (fun y -> (y, (IsValidPassport y)))
-        let okPasswords = (passports |> List.filter (fun (_, s) -> s = true))
-        let nokPasswords = (passports |> List.filter (fun (_, s) -> s = false))
+
+        let okPasswords =
+            (passports |> List.filter (fun (_, s) -> s = true))
+
+        let nokPasswords =
+            (passports |> List.filter (fun (_, s) -> s = false))
 
         printfn @"Number of passports: %d" (List.length passports)
         printfn @"Number of OK passports: %d" (List.length okPasswords)
