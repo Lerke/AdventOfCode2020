@@ -1,6 +1,6 @@
 # How to use
 
-Simply run the application as a dotnet 3.0 app. Takes three arguments: `<path to input> <initial x direction> <initial y direction> [<initial x direction> <initial y direction>]*`
+Simply run the application as a dotnet 3.0 app. Takes one argument: `<path to input>`
 
 Calculating the two star example output would be
 ```
