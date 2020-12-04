@@ -8,8 +8,12 @@
     <ItemGroup>
         <Compile Include="Program.fs" />
         <Content Include="README.MD" />
-        <Content Include="exampleinput.txt" />
-        <Content Include="input.txt" />
+        <Content Include="exampleinput.txt">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="input.txt">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
 </Project>
