@@ -9,4 +9,5 @@ With the goal of experimenting a bit with new languages and tools!
 |  2  | F#       | :star2: :star2: | [Day2.PasswordPhilosophy](https://github.com/Lerke/AdventOfCode2020/tree/master/Day2.PasswordPhilosophy)
 |  3  | F#       | :star2: :star2: | [Day3.TobogganTrajectory](https://github.com/Lerke/AdventOfCode2020/tree/master/Day3.TobogganTrajectory)
 |  4  | F#       | :star2: :star2: | [Day4.PassportProcessing](https://github.com/Lerke/AdventOfCode2020/tree/master/Day4.PassportProcessing)
+|  5  | F#       | :star2: | [Day5.BinaryBoarding](https://github.com/Lerke/AdventOfCode2020/tree/master/Day5.BinaryBoarding)
 
