@@ -10,4 +10,5 @@ With the goal of experimenting a bit with new languages and tools!
 |  3  | F#       | :star2: :star2: | [Day3.TobogganTrajectory](https://github.com/Lerke/AdventOfCode2020/tree/master/Day3.TobogganTrajectory)
 |  4  | F#       | :star2: :star2: | [Day4.PassportProcessing](https://github.com/Lerke/AdventOfCode2020/tree/master/Day4.PassportProcessing)
 |  5  | F#       | :star2: :star2: | [Day5.BinaryBoarding](https://github.com/Lerke/AdventOfCode2020/tree/master/Day5.BinaryBoarding)
+|  6  | F#       | | [Day6.CustomCustoms](https://github.com/Lerke/AdventOfCode2020/tree/master/Day6.CustomCustoms)
 

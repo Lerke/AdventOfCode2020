@@ -10,6 +10,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day4.PassportProcessing", "
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day5.BinaryBoarding", "Day5.BinaryBoarding\Day5.BinaryBoarding.fsproj", "{65B1F0FF-78E5-4195-AE99-EC60C12325F3}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day6.CustomCustoms", "Day6.CustomCustoms\Day6.CustomCustoms.fsproj", "{29218A81-3632-49B2-BCEA-6AAE33E92BA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{65B1F0FF-78E5-4195-AE99-EC60C12325F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65B1F0FF-78E5-4195-AE99-EC60C12325F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65B1F0FF-78E5-4195-AE99-EC60C12325F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29218A81-3632-49B2-BCEA-6AAE33E92BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29218A81-3632-49B2-BCEA-6AAE33E92BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29218A81-3632-49B2-BCEA-6AAE33E92BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29218A81-3632-49B2-BCEA-6AAE33E92BA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
