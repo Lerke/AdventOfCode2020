@@ -5,8 +5,10 @@ Simply run the application as a dotnet 3.0 app. Takes one argument: `<path to in
 Calculating the one star example output would be
 ```
 $ dotnet run ./exampleinput.txt 
-Day 6 - Custom Customs (*)
+Day 6 - Custom Customs (**)
 Using path: ./exampleinput.txt
-Sum of questions to which anyone answered yes: 11
+Sum of questions to which anyone answered yes (*):  11
+Sum of questions to which anyone answered yes (**): 6
+
 ```
 
