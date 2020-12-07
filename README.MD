@@ -11,4 +11,5 @@ With the goal of experimenting a bit with new languages and tools!
 |  4  | F#       | :star2: :star2: | [Day4.PassportProcessing](https://github.com/Lerke/AdventOfCode2020/tree/master/Day4.PassportProcessing)
 |  5  | F#       | :star2: :star2: | [Day5.BinaryBoarding](https://github.com/Lerke/AdventOfCode2020/tree/master/Day5.BinaryBoarding)
 |  6  | F#       | :star2: :star2: | [Day6.CustomCustoms](https://github.com/Lerke/AdventOfCode2020/tree/master/Day6.CustomCustoms)
+|  7  | F#       | :star2: | [Day7.HandyHaversacks](https://github.com/Lerke/AdventOfCode2020/tree/master/Day7.HandyHaversacks)
 
