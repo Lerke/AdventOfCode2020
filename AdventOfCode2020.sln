@@ -12,6 +12,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day5.BinaryBoarding", "Day5
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day6.CustomCustoms", "Day6.CustomCustoms\Day6.CustomCustoms.fsproj", "{29218A81-3632-49B2-BCEA-6AAE33E92BA2}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day7.HandyHaversacks", "Day7.HandyHaversacks\Day7.HandyHaversacks.fsproj", "{9AC0B6B4-577E-42A2-8739-430E18849202}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{29218A81-3632-49B2-BCEA-6AAE33E92BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29218A81-3632-49B2-BCEA-6AAE33E92BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29218A81-3632-49B2-BCEA-6AAE33E92BA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC0B6B4-577E-42A2-8739-430E18849202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC0B6B4-577E-42A2-8739-430E18849202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC0B6B4-577E-42A2-8739-430E18849202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC0B6B4-577E-42A2-8739-430E18849202}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
