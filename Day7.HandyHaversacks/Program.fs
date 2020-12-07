@@ -16,7 +16,9 @@ type Bag = {
 
 type BagTreeNode = {
     label: string
+    number: int
     leaves: BagTreeNode list
+    totalBagsInLeaves: int
 }
 
 let rec ColourIsReachableFromNode (bag: BagTreeNode) (colour: string): bool =
@@ -25,10 +27,19 @@ let rec ColourIsReachableFromNode (bag: BagTreeNode) (colour: string): bool =
     | false when bag.leaves.Length > 0 -> (List.fold (fun c g -> c || (ColourIsReachableFromNode g colour)) false bag.leaves)
     | _ -> false
 
-let rec ExpandNode (bag: Bag) (bagMap: Map<string, Bag>): BagTreeNode =
+let rec CalculateTotalNumberOfBags (bag: BagTreeNode) =
+    match bag.leaves.Length with
+    | x when x > 0 -> { bag with totalBagsInLeaves = bag.number + bag.number * (List.sum (List.map (fun f -> (CalculateTotalNumberOfBags f).totalBagsInLeaves) bag.leaves)); leaves = (List.map (fun f -> CalculateTotalNumberOfBags f) bag.leaves) }
+    | _ -> {
+        bag with totalBagsInLeaves = bag.number
+    }
+
+let rec ExpandNode (bag: Bag) (bagMap: Map<string, Bag>) number: BagTreeNode =
     { label = bag.bagType
+      number = number
       leaves = bag.children
-                   |> List.map (fun x -> ExpandNode (Map.find x.bagType bagMap) bagMap) }
+                   |> List.map (fun x -> ExpandNode (Map.find x.bagType bagMap) bagMap x.number)
+      totalBagsInLeaves = 0 }
 
 let ParseInput (path: string) =
     let lookup = File.ReadAllLines path
@@ -48,16 +59,15 @@ let ParseInput (path: string) =
     lookup
     |> Map.toList
     |> List.map snd
-    |> List.map (fun x -> (ExpandNode x lookup))
+    |> List.map (fun x -> (ExpandNode x lookup 1))
 
 [<EntryPoint>]
 let main argv =
     match argv with
     | [| path; colour|] ->
-        printfn "Day 7 - Handy Haversacks ()"
+        printfn "Day 7 - Handy Haversacks (**)"
         printfn "Using path: %s" path
         printfn "Using colour: %s" colour
-
         let parsedInput = ParseInput path
 
         // To calculate how many initial bag colours can eventually contain at least one shiny gold bag, we'll take all our
@@ -67,6 +77,12 @@ let main argv =
             |> List.filter (fun x -> x.label <> colour) // we don't care about this trivial case.
             |> List.map (fun x -> (x.label, ColourIsReachableFromNode x colour))
             |> List.filter (fun (f,s) -> s)
-        printfn "The %s bag is reachable from %d initial bags!" colour reachableFrom.Length
+
+        let individualBagsRequired = (CalculateTotalNumberOfBags (parsedInput |> List.find (fun f -> f.label = colour)))
+
+        printfn "The %s bag is reachable from %d initial bags! (*)" colour reachableFrom.Length
+        printfn "%d bags are required inside our bag with colour %s! (**)" (individualBagsRequired.totalBagsInLeaves - 1) colour
         0 // return an integer exit code
-    | _ -> 1
+    | _ ->
+        printfn "Usage: dotnet run ./path/to/input \"shiny gold\""
+        1
