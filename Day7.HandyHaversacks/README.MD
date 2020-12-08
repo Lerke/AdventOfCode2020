@@ -2,7 +2,7 @@
 
 Simply run the application as a dotnet 3.0 app. Takes one argument: `<path to input> "<colour>"`
 
-Calculating the one star example output would be
+Calculating the two star example output would be
 ```
 $ dotnet run ./exampleinput.txt "shiny gold"
 Day 7 - Handy Haversacks (**)
