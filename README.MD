@@ -12,5 +12,5 @@ With the goal of experimenting a bit with new languages and tools!
 |  5  | F#       | :star2: :star2: | [Day5.BinaryBoarding](https://github.com/Lerke/AdventOfCode2020/tree/master/Day5.BinaryBoarding)
 |  6  | F#       | :star2: :star2: | [Day6.CustomCustoms](https://github.com/Lerke/AdventOfCode2020/tree/master/Day6.CustomCustoms)
 |  7  | F#       | :star2: :star2: | [Day7.HandyHaversacks](https://github.com/Lerke/AdventOfCode2020/tree/master/Day7.HandyHaversacks)
-|  8  | F#       | | [Day8.HandheldHalting](https://github.com/Lerke/AdventOfCode2020/tree/master/Day8.HandheldHalting)
+|  8  | F#       | :star2: | [Day8.HandheldHalting](https://github.com/Lerke/AdventOfCode2020/tree/master/Day8.HandheldHalting)
 
