@@ -1,5 +1,6 @@
 ﻿open System
 open System.IO
+open FSharp.Collections.ParallelSeq
 
 type XmasInput = {
     Numbers: int64 list
@@ -38,10 +39,11 @@ let rec ValidateXmasEncoding input iteration =
 let CalculateContiguousSets input =
     [ 0 .. (input.Numbers |> List.length) ]
     |> List.map int64
-    |> List.map (fun f ->
+    |> PSeq.map (fun f ->
         let remaining = (List.skip (f |> int) input.Numbers)
         [ 0 .. (remaining |> List.length) - 1 ]
         |> List.map(fun f -> (List.take f remaining)))
+    |> PSeq.toList
     |> List.collect id
     |> List.filter (fun f -> f.Length >= 2) // We're only interested in lists with at least 2 elements
     |> List.distinct
