@@ -35,21 +35,49 @@ let rec ValidateXmasEncoding input iteration =
         // No check needed. We're still parsing the preamble, just continue
         ValidateXmasEncoding input (iteration + 1)
 
+let CalculateContiguousSets input =
+    [ 0 .. (input.Numbers |> List.length) ]
+    |> List.map int64
+    |> List.map (fun f ->
+        let remaining = (List.skip (f |> int) input.Numbers)
+        [ 0 .. (remaining |> List.length) - 1 ]
+        |> List.map(fun f -> (List.take f remaining)))
+    |> List.collect id
+    |> List.filter (fun f -> f.Length >= 2) // We're only interested in lists with at least 2 elements
+    |> List.distinct
+
 [<EntryPoint>]
 let main argv =
     match argv with
     | [| path; preamble |] when fst (Int32.TryParse preamble) = true ->
-        printfn "Day 9 - Encoding Error (*)"
+        printfn "Day 9 - Encoding Error (**)"
         printfn "Path: %s\nPreamble: %s" path preamble
+
         let initialInput = {
             Numbers = (File.ReadAllLines path |> (Array.map (int64))) |> List.ofArray
             PreambleLength = (preamble |> int)
         }
-
         let (output, iteration) = ValidateXmasEncoding initialInput 0
-
         printfn "First number that is not a combination of any two pairs (*): %d at index %d" output iteration
-        0
+
+        // Calculate contiguous sets. Then label them with their sums.
+        // Then check where their sum equals our forbidden number!
+        // Then just give the min, max and totals for that two star output.
+        match CalculateContiguousSets initialInput
+                             |> List.map (fun f -> (f, List.sum(f)))
+                             |> List.filter (fun (x, y) -> y = output)
+                             |> List.tryHead with
+                             | Some x -> printfn
+                                             "Found range that sums to %d!\nRange: %A\nSmallest: %d\nLargest: %d\nTotal: %d (**)"
+                                             output
+                                             (fst x)
+                                             (List.min (fst x))
+                                             (List.max (fst x))
+                                             ((List.min (fst x)) + (List.max (fst x)))
+                                         0
+                             | None ->
+                                 printf "Could not find a contiguous range that sums to %d!" output
+                                 1
     | _ ->
         printfn "Usage: dotnet run ./path/to/input preambleLength"
         1

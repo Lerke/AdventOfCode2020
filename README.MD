@@ -13,4 +13,4 @@ With the goal of experimenting a bit with new languages and tools!
 |  6  | F#       | :star2: :star2: | [Day6.CustomCustoms](https://github.com/Lerke/AdventOfCode2020/tree/master/Day6.CustomCustoms)
 |  7  | F#       | :star2: :star2: | [Day7.HandyHaversacks](https://github.com/Lerke/AdventOfCode2020/tree/master/Day7.HandyHaversacks)
 |  8  | F#       | :star2: :star2: | [Day8.HandheldHalting](https://github.com/Lerke/AdventOfCode2020/tree/master/Day8.HandheldHalting)
-|  9  | F#       | :star2: | [Day9.EncodingError](https://github.com/Lerke/AdventOfCode2020/tree/master/Day9.EncodingError)
+|  9  | F#       | :star2: :star2: | [Day9.EncodingError](https://github.com/Lerke/AdventOfCode2020/tree/master/Day9.EncodingError)
