@@ -18,6 +18,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day8.HandheldHalting", "Day
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day9.EncodingError", "Day9.EncodingError\Day9.EncodingError.fsproj", "{03522288-A326-435E-B2F2-EA5027602D96}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day10.AdapterArray", "Day10.AdapterArray\Day10.AdapterArray.fsproj", "{FA800918-FD7B-4B46-AF27-3A3EF8975EEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,5 +62,9 @@ Global
 		{03522288-A326-435E-B2F2-EA5027602D96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03522288-A326-435E-B2F2-EA5027602D96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03522288-A326-435E-B2F2-EA5027602D96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA800918-FD7B-4B46-AF27-3A3EF8975EEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA800918-FD7B-4B46-AF27-3A3EF8975EEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA800918-FD7B-4B46-AF27-3A3EF8975EEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA800918-FD7B-4B46-AF27-3A3EF8975EEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
