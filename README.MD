@@ -14,4 +14,4 @@ With the goal of experimenting a bit with new languages and tools!
 |  7  | F#       | :star2: :star2: | [Day7.HandyHaversacks](https://github.com/Lerke/AdventOfCode2020/tree/master/Day7.HandyHaversacks)
 |  8  | F#       | :star2: :star2: | [Day8.HandheldHalting](https://github.com/Lerke/AdventOfCode2020/tree/master/Day8.HandheldHalting)
 |  9  | F#       | :star2: :star2: | [Day9.EncodingError](https://github.com/Lerke/AdventOfCode2020/tree/master/Day9.EncodingError)
-|  10  | F#       | :star2: | [Day10.AdapterArray](https://github.com/Lerke/AdventOfCode2020/tree/master/Day10.AdapterArray)
+|  10  | F#       | :star2: :star2: | [Day10.AdapterArray](https://github.com/Lerke/AdventOfCode2020/tree/master/Day10.AdapterArray)
