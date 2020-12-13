@@ -15,4 +15,4 @@ With the goal of experimenting a bit with new languages and tools!
 |  8  | F#       | :star2: :star2: | [Day08.HandheldHalting](https://github.com/Lerke/AdventOfCode2020/tree/master/Day08.HandheldHalting)
 |  9  | F#       | :star2: :star2: | [Day09.EncodingError](https://github.com/Lerke/AdventOfCode2020/tree/master/Day09.EncodingError)
 |  10  | F#       | :star2: :star2: | [Day10.AdapterArray](https://github.com/Lerke/AdventOfCode2020/tree/master/Day10.AdapterArray)
-|  11  | F#       | | [Day11.SeatingSystem](https://github.com/Lerke/AdventOfCode2020/tree/master/Day11.SeatingSystem)
+|  11  | F#       | :star2: | [Day11.SeatingSystem](https://github.com/Lerke/AdventOfCode2020/tree/master/Day11.SeatingSystem)
