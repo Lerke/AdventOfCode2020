@@ -3,18 +3,16 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Day6.CustomCustoms</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
         <Compile Include="Program.fs" />
+        <Content Include="README.MD" />
         <Content Include="input.txt">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
         <Content Include="exampleinput.txt">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
-        <Content Include="README.MD" />
-        <Content Include="exampleinput2.txt">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>

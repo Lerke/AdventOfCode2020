@@ -3,17 +3,22 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Day8.HandheldHalting</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
         <Compile Include="Program.fs" />
-        <Content Include="README.MD" />
         <Content Include="input.txt">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
         <Content Include="exampleinput.txt">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
+        <Content Include="README.MD" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FSharp.Text.RegexProvider" Version="2.1.0" />
     </ItemGroup>
 
 </Project>

@@ -1,24 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day1.ReportRepair", "Day1.ReportRepair\Day1.ReportRepair.fsproj", "{5DC92F83-3F9E-4916-8672-60D5F058A601}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day01.ReportRepair", "Day01.ReportRepair\Day01.ReportRepair.fsproj", "{5DC92F83-3F9E-4916-8672-60D5F058A601}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day2.PasswordPhilosophy", "Day2.PasswordPhilosophy\Day2.PasswordPhilosophy.fsproj", "{D0726524-9434-4FC7-911B-97DEE924C277}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day02.PasswordPhilosophy", "Day02.PasswordPhilosophy\Day02.PasswordPhilosophy.fsproj", "{D0726524-9434-4FC7-911B-97DEE924C277}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day3.TobogganTrajectory", "Day3.TobogganTrajectory\Day3.TobogganTrajectory.fsproj", "{9CD8F4E7-EC7B-43F6-B08C-32C759434517}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day03.TobogganTrajectory", "Day03.TobogganTrajectory\Day03.TobogganTrajectory.fsproj", "{9CD8F4E7-EC7B-43F6-B08C-32C759434517}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day4.PassportProcessing", "Day4.PassportProcessing\Day4.PassportProcessing.fsproj", "{0C0580F5-0F37-427D-99AE-89384EE17E71}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day04.PassportProcessing", "Day04.PassportProcessing\Day04.PassportProcessing.fsproj", "{0C0580F5-0F37-427D-99AE-89384EE17E71}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day5.BinaryBoarding", "Day5.BinaryBoarding\Day5.BinaryBoarding.fsproj", "{65B1F0FF-78E5-4195-AE99-EC60C12325F3}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day05.BinaryBoarding", "Day05.BinaryBoarding\Day05.BinaryBoarding.fsproj", "{65B1F0FF-78E5-4195-AE99-EC60C12325F3}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day6.CustomCustoms", "Day6.CustomCustoms\Day6.CustomCustoms.fsproj", "{29218A81-3632-49B2-BCEA-6AAE33E92BA2}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day06.CustomCustoms", "Day06.CustomCustoms\Day06.CustomCustoms.fsproj", "{29218A81-3632-49B2-BCEA-6AAE33E92BA2}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day7.HandyHaversacks", "Day7.HandyHaversacks\Day7.HandyHaversacks.fsproj", "{9AC0B6B4-577E-42A2-8739-430E18849202}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day07.HandyHaversacks", "Day07.HandyHaversacks\Day07.HandyHaversacks.fsproj", "{9AC0B6B4-577E-42A2-8739-430E18849202}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day8.HandheldHalting", "Day8.HandheldHalting\Day8.HandheldHalting.fsproj", "{74E749A8-6EDE-4D75-98D8-B34F021D6963}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day08.HandheldHalting", "Day08.HandheldHalting\Day08.HandheldHalting.fsproj", "{74E749A8-6EDE-4D75-98D8-B34F021D6963}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day9.EncodingError", "Day9.EncodingError\Day9.EncodingError.fsproj", "{03522288-A326-435E-B2F2-EA5027602D96}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day09.EncodingError", "Day09.EncodingError\Day09.EncodingError.fsproj", "{03522288-A326-435E-B2F2-EA5027602D96}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day10.AdapterArray", "Day10.AdapterArray\Day10.AdapterArray.fsproj", "{FA800918-FD7B-4B46-AF27-3A3EF8975EEF}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day11.SeatingSystem", "Day11.SeatingSystem\Day11.SeatingSystem.fsproj", "{E7CB15F9-D7B8-4383-A8C3-86589A8EF0DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,5 +68,9 @@ Global
 		{FA800918-FD7B-4B46-AF27-3A3EF8975EEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA800918-FD7B-4B46-AF27-3A3EF8975EEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA800918-FD7B-4B46-AF27-3A3EF8975EEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7CB15F9-D7B8-4383-A8C3-86589A8EF0DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7CB15F9-D7B8-4383-A8C3-86589A8EF0DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7CB15F9-D7B8-4383-A8C3-86589A8EF0DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7CB15F9-D7B8-4383-A8C3-86589A8EF0DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
