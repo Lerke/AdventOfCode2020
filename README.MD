@@ -16,4 +16,4 @@ With the goal of experimenting a bit with new languages and tools!
 |  9  | F#       | :star2: :star2: | [Day09.EncodingError](https://github.com/Lerke/AdventOfCode2020/tree/master/Day09.EncodingError)
 |  10  | F#       | :star2: :star2: | [Day10.AdapterArray](https://github.com/Lerke/AdventOfCode2020/tree/master/Day10.AdapterArray)
 |  11  | F#       | :star2: :star2: | [Day11.SeatingSystem](https://github.com/Lerke/AdventOfCode2020/tree/master/Day11.SeatingSystem)
-|  12  | F#       | :star2: | [Day12.RainRisk](https://github.com/Lerke/AdventOfCode2020/tree/master/Day12.RainRisk)
+|  12  | F#       | :star2: :star2: | [Day12.RainRisk](https://github.com/Lerke/AdventOfCode2020/tree/master/Day12.RainRisk)
