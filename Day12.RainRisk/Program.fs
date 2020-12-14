@@ -55,7 +55,7 @@ let rec Turn initialDirection direction degrees =
                    | Right -> (Turn West Right (degrees - 90))
         | West -> match direction with
                   | Left -> (Turn South Left (degrees - 90))
-                  | Right -> (Turn North Left (degrees - 90))
+                  | Right -> (Turn North Right (degrees - 90))
     | x -> initialDirection
 
 let ApplyAction ship action =
@@ -78,9 +78,7 @@ let ApplyAction ship action =
 
 let rec ApplyMovesToShip ship moves =
     match moves with
-    | x :: xs ->
-        printfn "(%d, %d) : %A" (fst ship.Location) (snd ship.Location) x
-        ApplyMovesToShip (ApplyAction ship x) xs
+    | x :: xs -> ApplyMovesToShip (ApplyAction ship x) xs
     | [] -> ship
     
 let ManhattanDistance ship =
@@ -102,6 +100,8 @@ let main argv =
             Direction = East
             Location = (0, 0)
         }
+
+        let turned = (Turn West Right 180)
         
         let shipAfterMoves = ApplyMovesToShip initial moves
         let (shipX, shipY) = shipAfterMoves.Location
