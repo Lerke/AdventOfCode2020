@@ -78,7 +78,9 @@ let ApplyAction ship action =
 
 let rec ApplyMovesToShip ship moves =
     match moves with
-    | x :: xs -> ApplyMovesToShip (ApplyAction ship x) xs
+    | x :: xs ->
+        printfn "(%d, %d) : %A" (fst ship.Location) (snd ship.Location) x
+        ApplyMovesToShip (ApplyAction ship x) xs
     | [] -> ship
     
 let ManhattanDistance ship =
