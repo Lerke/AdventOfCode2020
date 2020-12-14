@@ -22,6 +22,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day10.AdapterArray", "Day10
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day11.SeatingSystem", "Day11.SeatingSystem\Day11.SeatingSystem.fsproj", "{E7CB15F9-D7B8-4383-A8C3-86589A8EF0DF}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day12.RainRisk", "Day12.RainRisk\Day12.RainRisk.fsproj", "{CE63F71F-DE01-4434-BA5B-0E51C6733C66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,9 @@ Global
 		{E7CB15F9-D7B8-4383-A8C3-86589A8EF0DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7CB15F9-D7B8-4383-A8C3-86589A8EF0DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7CB15F9-D7B8-4383-A8C3-86589A8EF0DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE63F71F-DE01-4434-BA5B-0E51C6733C66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE63F71F-DE01-4434-BA5B-0E51C6733C66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE63F71F-DE01-4434-BA5B-0E51C6733C66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE63F71F-DE01-4434-BA5B-0E51C6733C66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
