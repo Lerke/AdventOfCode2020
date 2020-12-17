@@ -18,4 +18,4 @@ With the goal of experimenting a bit with new languages and tools!
 |  11  | F#       | :star2: :star2: | [Day11.SeatingSystem](https://github.com/Lerke/AdventOfCode2020/tree/master/Day11.SeatingSystem)
 |  12  | F#       | :star2: :star2: | [Day12.RainRisk](https://github.com/Lerke/AdventOfCode2020/tree/master/Day12.RainRisk)
 |  13  | F#       | :star2: :star2: | [Day13.ShuttleSearch](https://github.com/Lerke/AdventOfCode2020/tree/master/Day13.ShuttleSearch)
-|  14  | F#       | :star2: | [Day14.DockingData](https://github.com/Lerke/AdventOfCode2020/tree/master/Day14.DockingData)
+|  14  | F#       | :star2: :star2: | [Day14.DockingData](https://github.com/Lerke/AdventOfCode2020/tree/master/Day14.DockingData)
