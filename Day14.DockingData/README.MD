@@ -6,4 +6,5 @@ Calculating the two star example output would be
 ```powershell
 Day 14 - Docking Data
 Path: ./exampleinput.txt
+Total sum left in memory after completion (*): 165
 ```
