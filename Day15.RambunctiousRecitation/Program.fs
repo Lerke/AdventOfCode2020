@@ -14,12 +14,12 @@ let rec CalculateRoundsNumberSpoken spokenNumbers round target =
         let lastNumberSpoken = spokenNumbers |> List.head
         match RoundCache.TryGetValue lastNumberSpoken with
         | (true, lastRound) when (List.length lastRound) > 1 ->
-            let lastTurnSpoken = (lastRound |> List.head) + 1
-            let turnBeforeThen = (lastRound |> List.skip 1 |> List.head) + 1
+            let lastTurnSpoken = (lastRound |> List.head)
+            let turnBeforeThen = (lastRound |> List.skip 1 |> List.head)
             let newNumber = ((lastTurnSpoken - turnBeforeThen))
             match RoundCache.TryGetValue newNumber with
             | (true, existing) ->
-                RoundCache.[newNumber] <- (round :: existing) |> List.sortDescending |> List.take 2
+                RoundCache.[newNumber] <- [ round ; (existing |> List.head ) ]
             | _ ->
                 RoundCache.Add(newNumber, [ round ])
             CalculateRoundsNumberSpoken (newNumber :: spokenNumbers) (round + 1) target
@@ -27,10 +27,10 @@ let rec CalculateRoundsNumberSpoken spokenNumbers round target =
             // Last number had not yet been spoken. Next number is zero
             match RoundCache.TryGetValue 0 with
             | (true, zero) ->
-                RoundCache.[0] <- (round :: zero) |> List.sortDescending |> List.take 2
+                RoundCache.[0] <- [ round ; (zero |> List.head) ]
             | _ ->
                 RoundCache.Add(0, [ round ])
-            CalculateRoundsNumberSpoken (0 :: spokenNumbers) (round + 1) target
+            CalculateRoundsNumberSpoken ( 0 :: spokenNumbers ) (round + 1) target
 
 [<EntryPoint>]
 let main argv =
@@ -40,6 +40,7 @@ let main argv =
         printfn "Path: %s" path
         printfn "N: %d" (targetRound |> int)
         let input = ParseInput path
+        printfn "Input: %A" input
         input |> List.rev |> List.iteri (fun i f -> RoundCache.TryAdd(f, [i]) |> ignore)
         printfn "The number spoken at round %d is (*): %d" (2020) (CalculateRoundsNumberSpoken input (input |> List.length) (2020) |> List.head)
         printfn "The number spoken at round %d is (**): %d" (targetRound |> int) (CalculateRoundsNumberSpoken input (input |> List.length) (targetRound |> int) |> List.head)
