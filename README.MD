@@ -19,4 +19,4 @@ With the goal of experimenting a bit with new languages and tools!
 |  12  | F#       | :star2: :star2: | [Day12.RainRisk](https://github.com/Lerke/AdventOfCode2020/tree/master/Day12.RainRisk)
 |  13  | F#       | :star2: :star2: | [Day13.ShuttleSearch](https://github.com/Lerke/AdventOfCode2020/tree/master/Day13.ShuttleSearch)
 |  14  | F#       | :star2: :star2: | [Day14.DockingData](https://github.com/Lerke/AdventOfCode2020/tree/master/Day14.DockingData)
-|  15  | F#       | | [Day15.RambunctiousRecitation](https://github.com/Lerke/AdventOfCode2020/tree/master/Day15.RambunctiousRecitation)
+|  15  | F#       | :star2: :star2: | [Day15.RambunctiousRecitation](https://github.com/Lerke/AdventOfCode2020/tree/master/Day15.RambunctiousRecitation)
