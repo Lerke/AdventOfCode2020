@@ -6,7 +6,7 @@ let ParseInput path =
     |> Seq.map (int)
     |> Seq.toList |> List.rev
     
-let RoundCache = Dictionary<int, int list> []  
+let mutable RoundCache = Dictionary<int, int list> []  
 let rec CalculateRoundsNumberSpoken spokenNumbers round target =
     match round with
     | x when x = target -> spokenNumbers
@@ -20,7 +20,7 @@ let rec CalculateRoundsNumberSpoken spokenNumbers round target =
             match RoundCache.TryGetValue newNumber with
             | (true, existing) ->
                 RoundCache.[newNumber] <- [ round ; (existing |> List.head ) ]
-            | _ ->
+            | (false, _) ->
                 RoundCache.Add(newNumber, [ round ])
             CalculateRoundsNumberSpoken (newNumber :: spokenNumbers) (round + 1) target
         | (_, _) ->
@@ -28,7 +28,7 @@ let rec CalculateRoundsNumberSpoken spokenNumbers round target =
             match RoundCache.TryGetValue 0 with
             | (true, zero) ->
                 RoundCache.[0] <- [ round ; (zero |> List.head) ]
-            | _ ->
+            | (false, _) ->
                 RoundCache.Add(0, [ round ])
             CalculateRoundsNumberSpoken ( 0 :: spokenNumbers ) (round + 1) target
 
@@ -43,7 +43,11 @@ let main argv =
         printfn "Input: %A" input
         input |> List.rev |> List.iteri (fun i f -> RoundCache.TryAdd(f, [i]) |> ignore)
         printfn "The number spoken at round %d is (*): %d" (2020) (CalculateRoundsNumberSpoken input (input |> List.length) (2020) |> List.head)
-        printfn "The number spoken at round %d is (**): %d" (targetRound |> int) (CalculateRoundsNumberSpoken input (input |> List.length) (targetRound |> int) |> List.head)
+        
+        RoundCache <- (Dictionary<int, int list>())
+        input |> List.rev |> List.iteri (fun i f -> RoundCache.TryAdd(f, [i]) |> ignore)
+        let result = (CalculateRoundsNumberSpoken input (input |> List.length) ((targetRound |> int) ))
+        printfn "The number spoken at round %d is (**): %d" (targetRound |> int) (result |> List.head)
         0
     | _ ->
         printfn "Usage: dotnet run ./path/to/input.txt 2020"
