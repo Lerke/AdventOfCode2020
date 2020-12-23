@@ -34,6 +34,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day16.TicketTranslation", "
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day17.ConwayCubes", "Day17.ConwayCubes\Day17.ConwayCubes.fsproj", "{7510B939-BC1A-4A4E-8571-2C8732919617}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Day18.OperationOrder", "Day18.OperationOrder\Day18.OperationOrder.fsproj", "{BC467A97-E6C1-403C-8FFB-5366C8831937}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -108,5 +110,9 @@ Global
 		{7510B939-BC1A-4A4E-8571-2C8732919617}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7510B939-BC1A-4A4E-8571-2C8732919617}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7510B939-BC1A-4A4E-8571-2C8732919617}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC467A97-E6C1-403C-8FFB-5366C8831937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC467A97-E6C1-403C-8FFB-5366C8831937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC467A97-E6C1-403C-8FFB-5366C8831937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC467A97-E6C1-403C-8FFB-5366C8831937}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
