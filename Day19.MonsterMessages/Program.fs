@@ -4,12 +4,12 @@ open System.Text.RegularExpressions
 open FSharp.Text.RegexProvider
 
 type TerminalPattern = Regex< @"(?<ruleId>\d+): \""(?<ruleChars>.*)\""" >
-type NonTerminalPattern = Regex<"(?<ruleId>\d+): (?<rules>\d.*)">
+type NonTerminalPattern = Regex<"(?<ruleId>\d+): (?<rules>(\d|\().*)">
 type InputPattern = Regex<"^(?<rule>[ab]+)">
 type RulePattern = Regex<"^(?<ruleId>\d+): (?<pattern>.*)">
 type Rule = { Index: int; Pattern: string }
 
-let rec ParseRules lines =
+let rec ParseRules lines round =
     let (terminals, nonTerminals) =
         ((TerminalPattern().TypedMatches lines), (NonTerminalPattern().TypedMatches lines))
 
@@ -20,13 +20,20 @@ let rec ParseRules lines =
                    |> Seq.forall (fun f ->
                        match f with
                        | "|" -> true
+                       | "(" -> true
+                       | ")*" -> true
+                       | ")" -> true
+                       | ")+" -> true
+                       | "(?<x>" -> true
+                       | "(?(x)(?!))" -> true
+                       | "(?<-x>" -> true
                        | x when (terminals
                                  |> Seq.exists (fun g -> g.ruleId.Value = x)) -> true
                        | _ -> false)) with
             | true -> Some f
             | false -> None)
 
-    let newTerminals =
+    let newTerminals: seq<string> =
         nonterminalsToReplace
         |> Seq.map (fun f ->
             sprintf
@@ -38,6 +45,13 @@ let rec ParseRules lines =
                      match r with
                      | "\"" -> "\""
                      | "|" -> "|"
+                     | "(" -> "("
+                     | ")*" -> ")*"
+                     | ")+" -> ")+"
+                     | ")" -> ")"
+                     | "(?<x>" -> "(?<x>"
+                     | "(?(x)(?!))" -> "(?(x)(?!))"
+                     | "(?<-x>" -> "(?<-x>"
                      | _ ->
                          sprintf
                              "(%s)"
@@ -57,9 +71,9 @@ let rec ParseRules lines =
     let newResults =
         (Seq.append newNonterminals newTerminals)
 
-    match Seq.isEmpty newNonterminals with
-    | false -> ParseRules(String.Join("\n", newResults))
-    | true ->
+    match (Seq.isEmpty newNonterminals, (round < 1000)) with
+    | (false, true) -> ParseRules(String.Join("\n", newResults)) (round+1)
+    | (_, _)->
         newResults
         |> Seq.map (fun f -> f.Replace("\"", ""))
         |> Seq.map (fun f ->
@@ -70,13 +84,17 @@ let rec ParseRules lines =
             | None -> failwithf "Could not parse input: %s" f)
 
 let ApplyPartTwoRules lines =
-    Regex.Replace(Regex.Replace(lines, "^8:.*", "8: 42 | 42 8"), "11:.*", "11: 42 31 | 42 11 31");
+    let r1 = Regex.Replace(lines, "^8:.*$", "8: ( 42 )+", RegexOptions.Multiline)
+    let r2 = Regex.Replace(r1, "^11:.*", "11: (?<x> 42 )+ (?<-x> 31 )+ (?(x)(?!))", RegexOptions.Multiline)
+    r2
 
 [<EntryPoint>]
 let main argv =
     match argv with
     | [| path |] ->
-        let rules = ParseRules(File.ReadAllText path)
+        printfn "Day 19 - Monster Messages"
+        printfn "Path: %s" path
+        let rules = ParseRules(File.ReadAllText path |> ApplyPartTwoRules) 0
 
         let inputLines =
             InputPattern(RegexOptions.Multiline)
@@ -87,8 +105,8 @@ let main argv =
 
         let linesMatchingRuleZero =
             inputLines
-            |> Seq.map (fun f -> Regex.IsMatch(f, $"^({RuleWithIdxZero.Pattern})$", (RegexOptions.Multiline)), f)
-        printfn "[ * ] Number of rules completely matching rule 0: %d" (linesMatchingRuleZero |> Seq.filter (fun (m, p) -> m = true) |> Seq.length )
+            |> Seq.map (fun f -> Regex.IsMatch(f, $"({RuleWithIdxZero.Pattern})", (RegexOptions.Multiline)), f)
+        printfn "[ ** ] Number of rules completely matching rule 0: %d" (linesMatchingRuleZero |> Seq.filter (fun (m, p) -> m = true) |> Seq.length )
         0
     | _ ->
         printfn "Usage: dotnet run ./path/to/input.txt"

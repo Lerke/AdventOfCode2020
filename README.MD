@@ -23,3 +23,4 @@ With the goal of experimenting a bit with new languages and tools!
 |  16  | F#       | :star2: :star2: | [Day16.TicketTranslation](https://github.com/Lerke/AdventOfCode2020/tree/master/Day16.TicketTranslation)
 |  17  | F#       | :star2: :star2: | [Day17.ConwayCubes](https://github.com/Lerke/AdventOfCode2020/tree/master/Day17.ConwayCubes)
 |  18  | F#       | :star2: :star2: | [Day18.OperationOrder](https://github.com/Lerke/AdventOfCode2020/tree/master/Day18.OperationOrder)
+|  19  | F#       | :star2: :star2: | [Day19.MonsterMessages](https://github.com/Lerke/AdventOfCode2020/tree/master/Day19.MonsterMessages)
